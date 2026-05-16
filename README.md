@@ -21,21 +21,35 @@ Permite cadastro, listagem, atualização, exclusão e realização de compras c
 | **Validações** | CPF/CNPJ com formato (regex); dados inválidos disparam `DadosInvalidosException` |
 
 ## 🧱 Estrutura do Projeto
-.
+
 ├── Cliente.java # Classe abstrata
+
 ├── PessoaFisica.java # Cliente PF
+
 ├── PessoaJuridica.java # Cliente PJ
+
 ├── Produto.java # Produto + estoque
+
 ├── Compra.java # Histórico de compra (usado em PF)
+
 ├── ControleClientes.java # Lógica de CRUD clientes (GUI)
+
 ├── ControleProdutos.java # Lógica de CRUD produtos e compra (GUI)
+
 ├── SistemaGUI.java # Janela principal (entry point)
+
 ├── Main.java # (Opcional) testes no console
+
 ├── ExcluirCliente.java # (Não utilizado – exclusão por documento)
+
 ├── projetofaculdade/ # Exceções personalizadas
+
 │ ├── DadosInvalidosException.java
+
 │ └── EstoqueInsuficienteException.java
+
 └── prints/ # Imagens do README
+
 ├── layout.png
 └── layout2.png
 
