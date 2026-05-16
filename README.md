@@ -1,139 +1,67 @@
-# 📝 Planner To-Do
+# 🛒 Sistema de Controle de Estoque e Clientes
 
-Um sistema de lista de tarefas desenvolvido em Python para organizar atividades, melhorar produtividade e praticar lógica de programação.
+Sistema desktop desenvolvido em **Java Swing** para gerenciar clientes (Pessoa Física e Jurídica), produtos e estoque.  
+Permite cadastro, listagem, atualização, exclusão e realização de compras com validação de CPF/CNPJ e controle de estoque.
 
----
+## 🖥️ Interface do Sistema
 
-# 📌 Sobre o Projeto
+### Tela principal com todos os botões
+![Tela principal do sistema](prints/layout.png)
 
-O **Planner To-Do** é um projeto simples criado com foco em aprendizado e prática de Python.
+### Exemplo de cadastro de produto
+![Cadastro de produto](prints/layout2.png)
 
-O sistema permite:
+## ⚙️ Funcionalidades
 
-* adicionar tarefas;
-* visualizar tarefas;
-* remover tarefas;
-* salvar tarefas em arquivos JSON.
+| Módulo          | Ações                                                                 |
+|----------------|-----------------------------------------------------------------------|
+| **Clientes**   | Cadastrar PF/PJ, listar, atualizar dados (nome, endereço, telefone), excluir por nome |
+| **Produtos**   | Cadastrar (nome, preço, quantidade), listar todos, realizar compra (reduz estoque) |
+| **Compras**    | Verifica estoque disponível, lança exceção `EstoqueInsuficienteException` |
+| **Validações** | CPF/CNPJ com formato (regex); dados inválidos disparam `DadosInvalidosException` |
 
-Esse projeto foi desenvolvido para praticar:
+## 🧱 Estrutura do Projeto
+.
+├── Cliente.java # Classe abstrata
+├── PessoaFisica.java # Cliente PF
+├── PessoaJuridica.java # Cliente PJ
+├── Produto.java # Produto + estoque
+├── Compra.java # Histórico de compra (usado em PF)
+├── ControleClientes.java # Lógica de CRUD clientes (GUI)
+├── ControleProdutos.java # Lógica de CRUD produtos e compra (GUI)
+├── SistemaGUI.java # Janela principal (entry point)
+├── Main.java # (Opcional) testes no console
+├── ExcluirCliente.java # (Não utilizado – exclusão por documento)
+├── projetofaculdade/ # Exceções personalizadas
+│ ├── DadosInvalidosException.java
+│ └── EstoqueInsuficienteException.java
+└── prints/ # Imagens do README
+├── layout.png
+└── layout2.png
 
-* lógica de programação;
-* estruturas de dados;
-* manipulação de listas;
-* arquivos JSON;
-* loops;
-* condicionais;
-* organização de projetos.
+text
 
----
+## ▶️ Como Executar
 
-# 🚀 Funcionalidades
+1. **Compilar todos os arquivos** (estando na raiz do projeto):
+   ```bash
+   javac *.java projetofaculdade/*.java
+Executar a interface gráfica:
 
-✅ Adicionar tarefas
-✅ Listar tarefas
-✅ Remover tarefas
-✅ Salvamento automático em JSON
-✅ Interface simples no terminal
-✅ Organização prática de atividades
+bash
+java SistemaGUI
+✅ Recomendação: Utilize SistemaGUI para a experiência completa. O arquivo Main.java executa testes manuais no console e pode ser ignorado.
 
----
+📋 Exemplo de Uso
+Cadastrar cliente → escolha PF ou PJ, preencha os dados.
 
-# 🛠️ Tecnologias Utilizadas
+Cadastrar produto → nome, preço e quantidade inicial.
 
-* Python 3
-* JSON
+Realizar compra → informe o nome do produto e a quantidade desejada. Se houver estoque, a quantidade é abatida.
 
----
+Listar produtos → visualiza todos os produtos com preço e estoque.
 
-# 📂 Estrutura do Projeto
+Atualizar cliente → informe o nome e altere os dados desejados.
 
-```bash
-planner-to-do/
-│
-├── main.py
-├── tarefas.json
-├── README.md
-└── prints/
-    ├── to-do.png
-    └── to-do2.png
-```
-
----
-
-# 📸 Prints do Projeto
-
-## Tela principal
-
-![Tela principal](prints/layout.png)
-
----
-
-## Sistema funcionando
-
-![Sistema funcionando](prints/layout2.png)
-
----
-
-## Sistema funcionando
-
-![Sistema funcionando](prints/to-do2.png)
-
----
-
-# ▶️ Como Executar
-
-## 1. Clone o repositório
-
-```bash
-git clone https://github.com/iLGuilhermeDev/planner-to-do.git
-```
-
----
-
-## 2. Acesse a pasta
-
-```bash
-cd planner-to-do
-```
-
----
-
-## 3. Execute o projeto
-
-```bash
-python main.py
-```
-
----
-
-# 💾 Sistema de Salvamento
-
-As tarefas são armazenadas automaticamente em um arquivo JSON.
-
-Exemplo:
-
-```json
-[
-  {
-    "tarefa": "Estudar Python"
-  },
-  {
-    "tarefa": "Treinar GitHub"
-  }
-]
-```
-
----
-
-# 💡 Objetivo do Projeto
-
-Esse projeto foi criado para:
-
-* praticar Python;
-* melhorar lógica de programação;
-* aprender Git e GitHub;
-* desenvolver projetos para portfólio.
-
----
-er.
+Excluir cliente → informe o nome para remover.
 
